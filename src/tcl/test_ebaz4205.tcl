@@ -23,3 +23,13 @@ puts "Current script location: $scriptDir";
 # create project
 create_project -part $xilinxPartNumber project_ebaz4205_tests $outputdir -force
 
+create_bd_design "design_ebaz4205"
+
+# add zynq processor subsystem
+startgroup
+create_bd_cell -type ip -vlnv xilinx.com:ip:processing_system7:5.5 procesing_system7_0
+endgroup
+
+
+regenerate_bd_layout
+save_bd_design
