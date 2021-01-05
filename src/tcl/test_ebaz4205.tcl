@@ -76,4 +76,7 @@ set_property STEPS.PHYS_OPT_DESIGN.IS_ENABLED true [get_runs impl_1]
 launch_runs impl_1 -to_step write_bitstream
 wait_on_run impl_1
 
+# create_bd_design "design_ebaz4205"
+update_compile_order -fileset sources_1
+write_hw_platform -fixed -include_bit -force -file ./project/design_ebaz4205_wrapper.xsa
 puts "Implenentation_done!"
